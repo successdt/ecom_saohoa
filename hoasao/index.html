@@ -1,0 +1,222 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hoasao Group</title>
+<link href="boilerplate.css" rel="stylesheet" type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
+<link href="reset.css" rel="stylesheet" type="text/css">
+<link href="screen.css" rel="stylesheet" type="text/css">
+<!-- 
+To learn more about the conditional comments around the html tags at the top of the file:
+paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+
+Do the following if you're using your customized build of modernizr (http://www.modernizr.com/):
+* insert the link to your js here
+* remove the link below to the html5shiv
+* add the "no-js" class to the html tags at the top
+* you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build 
+-->
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="js/respond.min.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/easySlider1.7.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){	
+			$("#slider").easySlider({
+				auto: true, 
+				continuous: true,
+				numeric: true
+			});
+		});	
+	</script>
+</head>
+<body>
+<div class="gridContainer clearfix">
+  <div id="wrapper">
+  	<div id="header">
+    	<div class="header-top">
+        	<div id="logo"><a href="#">Hoasao</a></div>
+        	<div class="header-top-right">
+            	<p class="sign-in"><a href="#">Sign In</a></p>
+                <ul class="social">
+                	<li class="fb"><a href="#">Facebook</a></li>
+                    <li class="tt"><a href="#">Twitter</a></li>
+                    <li class="ptr"><a href="#">Pinterest</a></li>
+                    <li class="rss"><a href="#">RSS</a></li>
+                    <li class="youtube"><a href="#">Youtube</a></li>
+                </ul>
+            </div>
+        </div><!-- End .header-top -->
+        
+        <div class="navbar">
+        	<div class="navbar-content">
+            	<ul class="main-nav">
+                	<li id="selected">Home</li>
+                    <li><a href="#">About Us</a>
+                    	<ul>
+                        		<li><a href="#">What We Do</a></li>
+                                <li><a href="#">Awards</a></li> 
+                                <li><a href="#">Management Profiles</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="#">Functions</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">Newsroom</a></li>
+                    <li><a href="#">Career</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <form action="<?php bloginfo('siteurl'); ?>" id="searchform" method="get">
+   				 <div class="search">
+                        <label for="s" class="screen-reader-text"></label>
+                        <input type="text" id="s" name="s" value="Search" onblur="if (this.value == '') {this.value = 'Search';}" onfocus="if (this.value == 'Search') {this.value = '';}" />
+                 </div>
+</form>
+            </div>
+        </div><!-- End .main_nav -->
+        
+        <div id="main_slider">
+        	<div id="slider">
+			<ul>				
+				<li><a href="#"><img src="images/slider.png" alt="Preview" /></a></li>
+				<li><a href="#"><img src="images/slider.png" alt="Preview" /></a></li>
+                <li><a href="#"><img src="images/slider.png" alt="Preview" /></a></li>
+                <li><a href="#"><img src="images/slider.png" alt="Preview" /></a></li>
+                <li><a href="#"><img src="images/slider.png" alt="Preview" /></a></li>			
+			</ul>
+		</div>
+        </div><!-- End #main_slider -->
+        <div class="main_slider_nav">
+        	<div class="main_slider_nav_content">
+            </div>
+        </div><!-- End #main_slider_nav -->
+    </div><!-- End #header -->
+    
+    <div id="content">
+    	<ul class="top_news">
+        	<li>
+            	<h3><a href="#">Hoa Sao is partner of Vanel for developing multilingual contact center</a></h3>
+                <img src="images/1.png" alt="" />
+                <p>Hoa Sao- multilingual contact center set up basing on the cooperation with French Vanel company.</p>
+                <p>Vanel company and Hoa Sao Group signed the agreement to develop Contact Center (including in-bound & out-bound service) in Vietnam and international market in differ</p>
+                <div class="more"><a href="#">read more</a></div>
+            </li>
+            
+            <li>
+            	<h3><a href="#">Yamaha Motor Vietnam launch customer service call center</a></h3>
+                <img src="images/2.png" alt="" />
+                <p>Hoa Sao- multilingual contact center set up basing on the cooperation with French Vanel company.</p>
+                <p>Vanel company and Hoa Sao Group signed the agreement to develop Contact Center (including in-bound & out-bound service) in Vietnam and international market in differ</p>
+                <div class="more"><a href="#">read more</a></div>
+            </li>
+            
+            <li>
+            	<h3><a href="#">The first titles of "Person of the month"</a></h3>
+                <img src="images/3.png" alt="" />
+                <p>Hoa Sao- multilingual contact center set up basing on the cooperation with French Vanel company.</p>
+                <p>Vanel company and Hoa Sao Group signed the agreement to develop Contact Center (including in-bound & out-bound service) in Vietnam and international market in differ</p>
+                <div class="more"><a href="#">read more</a></div>
+            </li>
+        </ul>
+        
+        <div class="support">
+        	<ul class="support_online">
+            	<li class="title"><span>Support</span>Online</li>
+                <li class="s_fb"><a href="#">FB</a></li>
+                <li class="s_yh"><a href="#">YH</a></li>
+                <li class="s_sk"><a href="#">SK</a></li>
+            </ul>
+        </div>
+        
+        <ul class="bottom-menu">
+            <li><a href="#">About Us</a>
+            	<ul>
+            		<li><a href="#">What We Do</a></li>
+					<li><a href="#">Awards</a></li> 
+					<li><a href="#">Management Profiles</a></li>
+                    <li><a href="#">Who We Are</a></li> 
+                    <li><a href="#">Corporate Culture</a></li> 
+                    <li><a href="#">Client Insights</a></li>
+            	</ul>
+            </li>
+            
+            <li><a href="#">Functions</a>
+            	<ul>
+                	<li><a href="#">Contact</a></li>
+                    <li><a href="#">Center Services</a></li> 
+                    <li><a href="#">BPO</a></li> 
+                    <li><a href="#">Sale and Marketing</a></li>
+                    <li><a href="#">Inbound Services</a></li> 
+                    <li><a href="#">Outbound Services</a></li> 
+                    <li><a href="#">Consulting</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="#">Resources</a>
+            	<ul>
+                	<li><a href="#">Report</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Career</a></li>
+            <li><a href="#">Newsroom</a>
+            	<ul>
+                	<li><a href="#">Press Release</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">Event</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div><!-- End #content -->
+    
+     <div id="footer">
+     	<div class="footer-left">
+        	<div id="logo" class="footer-logo"></div>
+            <ul class="info">
+            	<li><span>Head Office:</span> 160 Le Trong Tan,  Khuong Mai, Thanh Xuan, Hanoi</li>
+                <li>Tel: 04. 3565 9596- Fax: 04. 3565 9598</li>
+                <li><span>HCM:</span> No.1, Road 4, Nguyen U Di, Thao Dien Ward, District 2</li> 
+                <li>Tel: 08 3744 2845 - Fax: 08 3744 2846</li> 
+                <li><span>Hai Phong:</span> No. 128 Van Cao Street, Ngo Quyen Ward, Haiphong</li>
+               	<li>Tel : 0313. 261 319 - Fax: 0313. 261 318</li>
+            </ul>
+        </div>
+        
+       <div class="footer-right">
+            <ul class="social" id="footer-social">
+                	<li class="fb"><a href="#">Facebook</a></li>
+                    <li class="tt"><a href="#">Twitter</a></li>
+                    <li class="ptr"><a href="#">Pinterest</a></li>
+                    <li class="rss"><a href="#">RSS</a></li>
+                </ul>
+                
+            <ul class="info">
+            	<li><span>Da Nang:</span> No.114, Yen Bay Street, Hai Chau Ward, Danang</li>
+ 				<li>Tel: 0511. 625 3168 - Fax: 0511. 625 3169</li>
+				<li><span>Vinh Phuc:</span> 128 Me Linh Street, Dong Da Ward, Vinh Yen City</li>
+				<li>Tel: 0211.625.6028 - Fax: 0211.625.0329</li>
+            </ul>
+            
+            <p class="copyright">© 2010 Copy Right, Hoa Sao Group</p>
+        </div> 
+    
+    </div><!-- End #footer -->
+    
+    
+  </div>
+  
+  <!-- End #wrapper -->
+</div>
+</body>
+</html>

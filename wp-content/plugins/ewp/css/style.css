@@ -1,0 +1,30 @@
+.home-support {
+	width: 1058px;
+	height: 278px;
+	background: url('../images/support.png');
+	float: left;
+}
+.home-support > ul {
+	list-style-type: none;
+	margin: 175px 52px;
+	float: left;
+}
+.home-support > ul > li {
+	float: left;
+	margin-left: 10px;
+	font-size: 22px;
+	color: #153669;
+	line-height: 40px;
+}
+.home-support .sns {
+	padding: 12px 20px;
+}
+.home-support .facebook {
+	background: url('../images/s_fb.png') no-repeat;
+}
+.home-support .skype {
+	background: url('../images/s_skype.png') no-repeat;
+}
+.home-support .yahoo {
+	background: url('../images/s_yahoo.png') no-repeat;
+}
