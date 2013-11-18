@@ -134,7 +134,7 @@ body {
 	background: url('../images/content_bg.png') repeat-y;
 }
 .home #main-fullwidth {
-	margin-top: 40px;
+	padding-top: 40px;
 }
 #main > div, #main-fullwidth > div {
 	margin: 10px 50px;
@@ -351,7 +351,8 @@ ul.sub-menu li {
 }
 .content-bottom-widget-box ul.sub-menu li {
 	padding-left: 25px !important;
-	background: url('../images/blue_bullet.png') left no-repeat !important;	
+	background: url('../images/blue_bullet.png') center left no-repeat !important;
+	padding-top: 10px;	
 }
 .content-bottom-widget-box ul.sub-menu a {
 	font-weight: normal;
