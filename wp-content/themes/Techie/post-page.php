@@ -2,7 +2,7 @@
     
     <div <?php post_class('post page clearfix'); ?> id="post-<?php the_ID(); ?>">
     	<?php if(! is_front_page()): ?>
-	        <h2 class="title"><?php the_title();?></h2>    	
+	        <?php /*<h2 class="title"><?php the_title();?></h2>*/ ?>    	
     	<?php endif; ?>
 
         

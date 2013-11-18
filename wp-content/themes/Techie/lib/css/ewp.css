@@ -535,6 +535,11 @@ h2.title a:hover {
 .entry.clearfix {
 	float: left;
 	padding-top: 0;
+	width: 100%;
+}
+.featured-image-container + .entry {
+	width: 52%;
+	margin-left: 2%;
 }
 .readmore {
 	display: none;
