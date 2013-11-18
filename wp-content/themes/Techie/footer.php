@@ -32,6 +32,7 @@
 	        </div>
 	        */ ?>
 	        <div class="footer-widget-box footer-widget-box-last">
+	        	<?php $theme->hook('social_profiles'); ?>
 	            <?php
 	                if(!dynamic_sidebar('footer_3')) {
 	                    $theme->hook('footer_3');

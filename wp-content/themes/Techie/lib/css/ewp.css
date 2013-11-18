@@ -363,6 +363,13 @@ ul.sub-menu li {
 	padding-top: 98px;
 	margin-top: 24px;
 }
+.footer-widget-box-last {
+	background: none;
+	padding-top: 43px;
+}
+.social-profiles-widget {
+	margin-bottom: 22px;
+}
 /*product*/
 .product-form {
 	float: right;
@@ -523,8 +530,6 @@ h2.title a:hover {
 }
 .entry.clearfix {
 	float: left;
-	width: 52%;
-	margin-left: 2%;
 	padding-top: 0;
 }
 .readmore {
