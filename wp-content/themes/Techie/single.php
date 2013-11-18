@@ -1,10 +1,12 @@
 <?php global $theme; get_header(); ?>
 
-    <div id="main">
+    <div id="main-fullwidth">
     
         <?php $theme->hook('main_before'); ?>
     
-        <div id="content">
+        <!--
+		<div id="content">
+		-->
             
             <?php $theme->hook('content_before'); ?>
         
@@ -23,9 +25,11 @@
             
             <?php $theme->hook('content_after'); ?>
         
-        </div><!-- #content -->
+        <!--
+		</div>
+		--><!-- #content -->
     
-        <?php get_sidebars(); ?>
+        <?php // get_sidebars(); ?>
         
         <?php $theme->hook('main_after'); ?>
         
