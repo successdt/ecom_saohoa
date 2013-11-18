@@ -61,6 +61,9 @@ body {
 	color: #d8d7d7;
 	padding-left: 35px;
 }
+.menu-primary li li.current-menu-item a {
+	background: none;
+}
 .menu-primary li li a:hover  {
 	background: url('../images/y_bullet.png') no-repeat left transparent;
 	color: #e8871c;
@@ -71,6 +74,7 @@ body {
 	color: #FFF !important;
 	*/
 }
+
 .menu-primary li a:hover, .menu-primary li a:active, .menu-primary li a:focus, 
 .menu-primary li:hover > a, .menu-primary li.current-cat > a, .menu-primary li.current_page_item > a, .menu-primary li.current-menu-item > a{
 	color: #FFF;
