@@ -1,0 +1,1 @@
+var $j = jQuery.noConflict();$j(function(){jQuery(document).ready(function($){$('.reports-container').jScrollPane();});});

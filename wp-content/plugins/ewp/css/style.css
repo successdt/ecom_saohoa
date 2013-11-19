@@ -40,3 +40,22 @@ ul.list-reports li {
 .reports-container {
 	overflow-x: auto;
 }
+.reports-container .report-post + .report-post {
+	
+}
+.report-post > div {
+	width: 210px;
+	height: 275px;
+	padding-right: 75px;
+	background: url('../images/border.png') bottom left repeat-x;
+	text-align: center;
+}
+.report-post > div + div {
+	background: none;
+	padding-top: 20px;
+}
+.report-post .title {
+	font-size: 16px;
+	text-decoration: none;
+	color: #D78510;
+}
