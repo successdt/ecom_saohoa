@@ -28,3 +28,15 @@
 .home-support .yahoo {
 	background: url('../images/s_yahoo.png') no-repeat;
 }
+ul.list-reports {
+	list-style-type: none;
+	display:-ms-flexbox;
+	display:-moz-box;
+	display:-webkit-box;
+	display:box;
+}
+ul.list-reports li {
+}
+.reports-container {
+	overflow-x: auto;
+}

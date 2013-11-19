@@ -2,7 +2,7 @@
 
     <div <?php post_class('post post-single clearfix'); ?> id="post-<?php the_ID(); ?>">
     
-        <h2 class="title"><?php the_title(); ?></h2>
+        <h2 class="post-title"><?php the_title(); ?></h2>
         
         <div class="postmeta-primary">
     

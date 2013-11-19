@@ -230,6 +230,7 @@ function register_shortcode(){
 //	add_shortcode('facebook-page', 'facebook_page');
 //	add_shortcode('home-ads', 'show_home_ads');
 	add_shortcode('home-support', 'home_support');
+	add_shortcode('ewp-report', 'ewp_report');
 }
 
 add_action('init', 'register_shortcode');
@@ -352,6 +353,57 @@ function home_support($atts){
 	';
 	
 	return $str;
+}
+
+function ewp_report($atts){
+	extract(shortcode_atts(array(
+		'category' => ''
+	), $atts));
+	
+	if($category) {
+		$str = '';
+		
+		$queryObject = new  Wp_Query( array(
+			'showposts' => 1000,
+			'post_type' => array('post'),
+			'category_name' => $category,
+			'orderby' => 1
+		));
+		$str .= '
+			<div class="reports-container">
+				<ul class="list-reports">';
+		$postCount = 0;
+		if($queryObject->have_posts()){
+			while($queryObject->have_posts()){
+				$queryObject->the_post();
+				$postCount++;
+				if($postCount % 2)
+					$str .= '<li class="report-post">';
+				add_image_size( 'news-post', 210, 160, true );
+				$thumb = get_the_post_thumbnail(get_the_ID(), 'news-post', 'class=post-thumb');
+				$permalink = get_permalink();
+				$str .= 
+					'	<a class="title" href="' . get_permalink() . '" title="' . wp_specialchars(get_the_title(), 1) . '"> ' .
+							$thumb . 	
+					'	</a>';
+						
+				$str .=
+						'<a class="title" href="' . $permalink . '" title="' . wp_specialchars(get_the_title(), 1) . '">' .
+					 		wp_specialchars(get_the_title(), 1) .
+						'</a>' .
+						'<p>' . get_the_excerpt() . '</p>
+					';
+				if(!($postCount % 2))
+					$str .= '</li>';
+			}
+			if($postCount % 2) 
+				$str .= '</li>';
+		}
+		$str .= '
+				</ul>
+			</div>';
+		return $str;
+	}
 }
 
 /*********Amin area*******/
