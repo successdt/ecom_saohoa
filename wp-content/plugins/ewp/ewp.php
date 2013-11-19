@@ -383,7 +383,8 @@ function ewp_report($atts){
 				$thumb = get_the_post_thumbnail(get_the_ID(), 'news-post', 'class=post-thumb');
 				$permalink = get_permalink();
 				$str .= 
-					'	<a class="title" href="' . get_permalink() . '" title="' . wp_specialchars(get_the_title(), 1) . '"> ' .
+					'<div>
+						<a href="' . get_permalink() . '" title="' . wp_specialchars(get_the_title(), 1) . '"> ' .
 							$thumb . 	
 					'	</a>';
 						
@@ -392,7 +393,7 @@ function ewp_report($atts){
 					 		wp_specialchars(get_the_title(), 1) .
 						'</a>' .
 						'<p>' . get_the_excerpt() . '</p>
-					';
+					</div>';
 				if(!($postCount % 2))
 					$str .= '</li>';
 			}

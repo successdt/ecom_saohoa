@@ -573,3 +573,9 @@ h2.page-title {
 h2.post-title {
 	color: #153669 ;
 }
+.jspDrag {
+	background: url('../images/scroll_bg.png') repeat-x !important;
+}
+.jspTrack {
+	background: url('../images/track_bg.png') repeat-x !important;
+}
