@@ -518,14 +518,34 @@ h2.title a:hover {
 .contact-form form {
 	max-width: 550px;
 }
-.contact-form input, .contact-form textarea {
+.contact-form input, .contact-form textarea, .wpcf7 input {
 	border-radius: 5px;
+	padding: 6px;
 }
-.contact-form input[type=submit] {
+.contact-form input[type=submit], .wpcf7  input[type=submit] {
 	background: url('../images/button_bg.png')  repeat-x;
 	color: #FFF;
 	cursor: pointer;
 }
+.wpcf7  input[type=submit] {
+	padding: 7px 80px;
+}
+.wpcf7 th {
+	background: url('../images/nav_bg.png') repeat-x;
+	padding: 10px 0;
+	color: #FFF;
+	font-size: 16px;
+} 
+table.survey {
+	border: 1px solid #b4b3b0;
+	background: #E1E0DB;
+	padding: 0 15px;
+}
+
+table.survey tr {
+	border-bottom: 1px solid #BEBDB9;
+}
+
 .featured-image-container {
 	width: 45%;
 	height: 310px;
@@ -546,4 +566,10 @@ h2.title a:hover {
 }
 h2.page-title {
 	display: none;
+}
+.postmeta-primary {
+	display: none;
+}
+h2.post-title {
+	color: #153669 ;
 }
