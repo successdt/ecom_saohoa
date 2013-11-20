@@ -1,7 +1,7 @@
 .home-support {
-	width: 1058px;
+	width: 780px;
 	height: 278px;
-	background: url('../images/support.png');
+	background: url('../images/support.png') right;
 	float: left;
 }
 .home-support > ul {
@@ -27,6 +27,37 @@
 }
 .home-support .yahoo {
 	background: url('../images/s_yahoo.png') no-repeat;
+}
+#wpcf7-f426-p10-o1 {
+	width: auto;
+	
+	text-align: center;
+	height: 279px;
+	background: url('../images/border.png') bottom left repeat-x;
+}
+#wpcf7-f426-p10-o1 form {
+	background: url('../images/border.png') top left repeat-x;
+	padding: 10px;
+}
+
+#wpcf7-f426-p10-o1 input {
+	width: 218px;
+	margin-left: 20px;
+}
+#wpcf7-f426-p10-o1 input.wpcf7-text {
+	max-width: 200px;
+	margin-left: 0;
+}
+#wpcf7-f426-p10-o1 p {
+	margin: 10px auto;
+}
+#wpcf7-f426-p10-o1 h3 {
+	font-size: 18px;
+	color: #153669;
+	font-weight: bold;
+}
+#wpcf7-f426-p10-o1 h3 span {
+	color: #e8871c;
 }
 ul.list-reports {
 	list-style-type: none;
