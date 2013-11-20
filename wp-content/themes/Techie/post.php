@@ -13,7 +13,7 @@
 			
         </div>
         */ ?> 
-        <h2 class="title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'themater' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+        
         
         <?php
             if(has_post_thumbnail())  {
@@ -23,19 +23,42 @@
         ?>
             
         <div class="entry clearfix">
-            
+            <h2 class="title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'themater' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
             <?php
                // the_content('');
                the_excerpt();
-            
             ?>
-
+            <?php
+            $photo = get_post_custom_values('photo');
+            $video = get_post_custom_values('video');
+            $logo = get_post_custom_values('logo');
+			?>
+			<ul class="event-links">
+				<?php if($photo): ?>
+					<li>
+						<a href="<?php echo $photo[0] ?>"><?php echo __('View photo') ?></a>
+					</li>
+				<?php endif ?>
+				<?php if($video): ?>
+					<li>
+						<a href="<?php echo $video[0] ?>"><?php echo __('Video clip') ?></a>
+					</li>
+				<?php endif ?>
+			</ul>
+			<?php if($logo[0]): ?>
+				<div class="press-logo">
+					<img src="<?php echo $logo[0] ?>" />
+				</div>
+			<?php endif; ?>
+			
+	        <?php if($theme->display('read_more')) { ?>
+	        <div class="readmore">
+	            <a href="<?php the_permalink(); ?>#more-<?php the_ID(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'themater' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php $theme->option('read_more'); ?></a>
+	        </div>
+	        <?php } ?>			
+			
         </div>
         
-        <?php if($theme->display('read_more')) { ?>
-        <div class="readmore">
-            <a href="<?php the_permalink(); ?>#more-<?php the_ID(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'themater' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php $theme->option('read_more'); ?></a>
-        </div>
-        <?php } ?>
+
         
     </div><!-- Post ID <?php the_ID(); ?> -->

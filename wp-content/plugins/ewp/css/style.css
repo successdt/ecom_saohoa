@@ -59,3 +59,45 @@ ul.list-reports li {
 	text-decoration: none;
 	color: #D78510;
 }
+.large-news-box {
+	float: left;
+	width: 100%;
+	background: url('../images/border.png') bottom left repeat-x;
+	margin-bottom: 20px;
+}
+.large-news-box .ewp-small.post {
+	width: 300px;
+	float: left;
+}
+.large-news-box .ewp-small.post + .ewp-small.post {
+	margin-left: 20px;
+}
+.large-news-box .ewp-small.post .featured-image-container, .large-news-box .ewp-small.post .entry {
+	width: 100%;
+	margin: 0;
+	height: auto;
+	
+}
+.navigation {
+	float: left;
+	text-align: center;
+	width: 100%;
+}
+.navigation ul {
+	list-style-type: none;
+}
+.navigation ul li {
+	display: inline;
+	margin: 5px;
+}
+.navigation a {
+	text-decoration: none;
+	background: url('../images/paging.png') repeat-x;
+	padding: 3px 5px;
+	font-weight: bold;
+	color: #000;
+}
+.navigation li.active a {
+	background: url('../images/paging_active.png') repeat-x;
+	color: #FFF;
+}

@@ -379,22 +379,27 @@ ul.sub-menu li {
 	float: right;
 	width: 48%;
 }
-
+.readmore {
+	float: left;
+	background: url('../images/li_bg.png') right no-repeat;
+	
+	width: 120px;
+}
 #buy-product-btn, .readmore a {
-	background: url('../images/header_bg.gif');
 	padding: 10px 20px;
-	color: #FFF;
 	font-weight: bold;
-	border-radius: 2px;
 	text-decoration: none;
+	
 }
-.readmore a {
+.readmore a, .readmore a:hover {
 	margin-right: 10px;
+	font-size: 14px;
+	color: #e8871c;
+	line-height: 35px;
+	padding: 0;
+	text-transform: none;
 }
-.readmore a:hover {
-	background: url('../images/header_bg.gif');
-	color: #EEE;
-}
+
 .header-right {
 	float: none;
 }
@@ -561,9 +566,6 @@ table.survey tr {
 	width: 52%;
 	margin-left: 2%;
 }
-.readmore {
-	display: none;
-}
 h2.page-title {
 	display: none;
 }
@@ -578,4 +580,20 @@ h2.post-title {
 }
 .jspTrack {
 	background: url('../images/track_bg.png') repeat-x !important;
+}
+.event-links {
+	list-style-type: none;
+	padding-left: 0;
+	margin-bottom: 0;
+}
+.event-links li {
+	background: url('../images/li_bg.png') right no-repeat;
+	width: 120px;
+}
+.event-links li a {
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 14px;
+	color: #e8871c;
+	line-height: 35px;
 }

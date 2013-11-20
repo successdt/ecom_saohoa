@@ -231,6 +231,7 @@ function register_shortcode(){
 //	add_shortcode('home-ads', 'show_home_ads');
 	add_shortcode('home-support', 'home_support');
 	add_shortcode('ewp-report', 'ewp_report');
+	add_shortcode('large-news-box', 'large_news_box');
 }
 
 add_action('init', 'register_shortcode');
@@ -407,6 +408,135 @@ function ewp_report($atts){
 	}
 }
 
+
+function large_news_box($atts){
+	extract(shortcode_atts(array(
+		'category' => '',
+		'title' => '',
+		'url' => ''
+	), $atts));
+	$str = '';
+	$child = '';
+	if($category){
+		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+		$queryObject = new  Wp_Query( array(
+			'showposts' => 4,
+			'post_type' => array('post'),
+			'category_name' => $category,
+			'orderby' => 1,
+			'paged' => $paged
+		));
+		
+		if($queryObject->have_posts()):
+			$cat = get_category_by_slug($category);
+			$str = '
+			<div class="news-box large-news-box">';
+				$i = 0;
+			while($queryObject->have_posts()):
+				$queryObject->the_post();
+				$class = $i ? 'ewp-small' : '';
+					$str .= 
+						'<div class="' . $class .'  post type-post status-publish format-standard hentry  post clearfix instock">';
+							
+							add_image_size( 'news-post', 475, 310, true );
+							$thumb = get_the_post_thumbnail(get_the_ID(), 'news-post', 'class=post-thumb');
+							$permalink = get_permalink();
+							$str .=
+							'<div class="featured-image-container">
+								<a class="title" href="' . $permalink . '" title="' . wp_specialchars(get_the_title(), 1) . '">' .
+									$thumb .
+							'	</a>
+							</div>
+							<div class="entry clearfix">
+								<h2 class="title">
+									<a class="title" href="' . get_permalink() . '" title="' . wp_specialchars(get_the_title(), 1) . '">
+									' . wp_specialchars(get_the_title(), 1) . '
+									</a>
+								</h2>
+								<p>' . get_the_excerpt() . '</p>
+								<div class="readmore">
+									<a href="' . $permalink . '" title="' . wp_specialchars(get_the_title(), 1) . '">
+										Xem thêm
+									</a>						
+								</div>								
+							</div>
+						</div>';
+				$i++;
+			endwhile;
+			$str .= wpbeginner_numeric_posts_nav($queryObject);
+			$str .= '</div>';
+			
+		endif;		
+	}
+	
+	return $str;
+}
+
+function wpbeginner_numeric_posts_nav($wp_query) {
+
+	$str = '';
+	
+	/** Stop execution if there's only 1 page */
+	if( $wp_query->max_num_pages <= 1 )
+		return;
+
+	$paged = get_query_var( 'page' ) ? absint( get_query_var( 'page' ) ) : 1;
+	$max   = intval( $wp_query->max_num_pages );
+
+	/**	Add current page to the array */
+	if ( $paged >= 1 )
+		$links[] = $paged;
+
+	/**	Add the pages around the current page to the array */
+	if ( $paged >= 3 ) {
+		$links[] = $paged - 1;
+		$links[] = $paged - 2;
+	}
+
+	if ( ( $paged + 2 ) <= $max ) {
+		$links[] = $paged + 2;
+		$links[] = $paged + 1;
+	}
+
+	$str .= '<div class="navigation"><ul>' . "\n";
+
+	/**	Previous Post Link */
+	if ( get_previous_posts_link() )
+		$str .= sprintf( '<li>%s</li>' . "\n", get_previous_posts_link() );
+
+	/**	Link to first page, plus ellipses if necessary */
+	if ( ! in_array( 1, $links ) ) {
+		$class = 1 == $paged ? ' class="active"' : '';
+
+		$str .= sprintf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( 1 ) ), '1' );
+
+		if ( ! in_array( 2, $links ) )
+			$str .= '<li>…</li>';
+	}
+
+	/**	Link to current page, plus 2 pages in either direction if necessary */
+	sort( $links );
+	foreach ( (array) $links as $link ) {
+		$class = $paged == $link ? ' class="active"' : '';
+		$str .= sprintf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $link ) ), $link );
+	}
+
+	/**	Link to last page, plus ellipses if necessary */
+	if ( ! in_array( $max, $links ) ) {
+		if ( ! in_array( $max - 1, $links ) )
+			echo '<li>…</li>' . "\n";
+
+		$class = $paged == $max ? ' class="active"' : '';
+		$str .= sprintf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $max ) ), '>>' );
+	}
+
+	/**	Next Post Link */
+	if ( get_next_posts_link() )
+		$str .= sprintf( '<li>%s</li>' . "\n", get_next_posts_link() );
+
+	$str .= '</ul></div>' . "\n";
+	return $str;
+}
 /*********Amin area*******/
 
 ?>
