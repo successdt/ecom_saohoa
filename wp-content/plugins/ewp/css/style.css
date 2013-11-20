@@ -28,35 +28,35 @@
 .home-support .yahoo {
 	background: url('../images/s_yahoo.png') no-repeat;
 }
-#wpcf7-f426-p10-o1 {
+.home-support + .wpcf7 {
 	width: auto;
 	
 	text-align: center;
 	height: 279px;
 	background: url('../images/border.png') bottom left repeat-x;
 }
-#wpcf7-f426-p10-o1 form {
+.home-support + .wpcf7 form {
 	background: url('../images/border.png') top left repeat-x;
 	padding: 10px;
 }
 
-#wpcf7-f426-p10-o1 input {
+.home-support + .wpcf7 input {
 	width: 218px;
 	margin-left: 20px;
 }
-#wpcf7-f426-p10-o1 input.wpcf7-text {
+.home-support + .wpcf7 input.wpcf7-text {
 	max-width: 200px;
 	margin-left: 0;
 }
-#wpcf7-f426-p10-o1 p {
+.home-support + .wpcf7 p {
 	margin: 10px auto;
 }
-#wpcf7-f426-p10-o1 h3 {
+.home-support + .wpcf7 h3 {
 	font-size: 18px;
 	color: #153669;
 	font-weight: bold;
 }
-#wpcf7-f426-p10-o1 h3 span {
+.home-support + .wpcf7 h3 span {
 	color: #e8871c;
 }
 ul.list-reports {
@@ -131,4 +131,18 @@ ul.list-reports li {
 .navigation li.active a {
 	background: url('../images/paging_active.png') repeat-x;
 	color: #FFF;
+}
+.home-column {
+	width: 45%;
+	float: left;
+}
+.home-column + .home-column {
+	margin-left: 5%;
+}
+.home-column .featured-image-container, .home-column .entry {
+	width: 100%;
+	height: auto;
+}
+.youtube-readmore {
+	width: 165px;
 }

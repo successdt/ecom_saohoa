@@ -9,7 +9,12 @@
 			            $theme->hook('content-bottom-widget');
 			        }
 			    ?>
-			</div>     	
+			</div>
+			<div class="partners">
+				<?php 
+					do_shortcode('home-partners');
+			 	?>
+			</div>    	
 	        <?php
 	        /**
 	        * Footer  Widget Areas. Manage the widgets from: wp-admin -> Appearance -> Widgets 
