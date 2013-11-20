@@ -232,6 +232,8 @@ function register_shortcode(){
 	add_shortcode('home-support', 'home_support');
 	add_shortcode('ewp-report', 'ewp_report');
 	add_shortcode('large-news-box', 'large_news_box');
+	add_shortcode('home-news', 'home_news');
+	add_shortcode('home-youtube', 'home_youtube');
 }
 
 add_action('init', 'register_shortcode');
@@ -537,6 +539,179 @@ function wpbeginner_numeric_posts_nav($wp_query) {
 	$str .= '</ul></div>' . "\n";
 	return $str;
 }
+
+
+function home_news($atts){
+	extract(shortcode_atts(array(
+		'category' => '',
+		'title' => '',
+		'url' => ''
+	), $atts));
+	$str = '';
+	$child = '';
+	if($category){
+		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+		$queryObject = new  Wp_Query( array(
+			'showposts' => 2,
+			'post_type' => array('post'),
+			'category_name' => $category,
+			'orderby' => 1,
+			'paged' => $paged
+		));
+		
+		if($queryObject->have_posts()):
+			$cat = get_category_by_slug($category);
+				$i = 0;
+			while($queryObject->have_posts()):
+				$queryObject->the_post();
+					$str .= 
+						'<div class="home-column  post type-post status-publish format-standard hentry  post clearfix instock">
+							<h2 class="title">
+								<a class="title" href="' . get_permalink() . '" title="' . wp_specialchars(get_the_title(), 1) . '">
+								' . wp_specialchars(get_the_title(), 1) . '
+								</a>
+							</h2>';	
+							add_image_size('news-post', 475, 310, true );
+							$thumb = get_the_post_thumbnail(get_the_ID(), 'news-post', 'class=post-thumb');
+							$permalink = get_permalink();
+							$str .=
+							'<div class="featured-image-container">
+								<a class="title" href="' . $permalink . '" title="' . wp_specialchars(get_the_title(), 1) . '">' .
+									$thumb .
+							'	</a>
+							</div>
+							<div class="entry clearfix">
+								<p>' . get_the_excerpt() . '</p>
+								<div class="readmore">
+									<a href="' . $permalink . '" title="' . wp_specialchars(get_the_title(), 1) . '">
+										' . __('Read more') . '
+									</a>						
+								</div>								
+							</div>
+						</div>';
+				$i++;
+			endwhile;
+			
+		endif;		
+	}
+	
+	return $str;
+}
+
+function home_youtube($atts){
+	extract(shortcode_atts(array(
+		'v' => '',
+		'text' => '',
+		'title' => ''
+	), $atts));
+
+	if($v) {
+		$str = '
+			<h2 class="title">
+				<a class="title" href="http://www.youtube.com/watch?v=' . $v . '" title="' . $title. '">
+					' . $title . '
+				</a>
+			</h2>
+			<iframe width="350" height="200" src="//www.youtube.com/embed/' . $v . '" frameborder="0" allowfullscreen></iframe>
+			<p>' . $text . '</p>
+			<div class="readmore youtube-readmore">
+				<a href="http://www.youtube.com/watch?v=' . $v . '">
+					' . __('View on Youtube') . '
+				</a>						
+			</div>	
+		';
+		return $str;
+	}		
+}
+
+function home_partners( $attr ) {
+	extract( shortcode_atts( array(
+			'id'	=> '',
+		), $attr ) 
+	);
+	$args = array(
+		'post_type'	=> 'gallery',
+		'post_status' => 'publish',
+		'p' => $id,
+		'posts_per_page' => 1
+	);	
+	ob_start();
+	$second_query = new WP_Query( $args ); 
+	$gllr_options = get_option( 'gllr_options' ); 
+	if ( $second_query->have_posts() ) : 
+		while ( $second_query->have_posts() ) : 
+			global $post;
+			$second_query->the_post(); ?>
+			<div class="gallery_box_single">
+				<?php the_content(); 
+				$posts = get_posts( array(
+					"showposts"			=> -1,
+					"what_to_show"	=> "posts",
+					"post_status"		=> "inherit",
+					"post_type"			=> "attachment",
+					"orderby"				=> $gllr_options['order_by'],
+					"order"					=> $gllr_options['order'],
+					"post_mime_type"=> "image/jpeg,image/gif,image/jpg,image/png",
+					"post_parent"		=> $post->ID
+				));
+				if( count( $posts ) > 0 ) {
+					$count_image_block = 0; ?>
+					<div class="gallery clearfix">
+						<?php foreach( $posts as $attachment ) { 
+							$key = "gllr_image_text";
+							$link_key = "gllr_link_url";
+							$image_attributes = wp_get_attachment_image_src( $attachment->ID, 'photo-thumb' );
+							$image_attributes_large = wp_get_attachment_image_src( $attachment->ID, 'large' );
+							$image_attributes_full = wp_get_attachment_image_src( $attachment->ID, 'full' );
+							if( 1 == $gllr_options['border_images'] ){
+								$gllr_border = 'border-width: '.$gllr_options['border_images_width'].'px; border-color:'.$gllr_options['border_images_color'].'';
+								$gllr_border_images = $gllr_options['border_images_width'] * 2;
+							}
+							else{
+								$gllr_border = '';
+								$gllr_border_images = 0;
+							}
+							if( $count_image_block % $gllr_options['custom_image_row_count'] == 0 ) { ?>
+							<div class="gllr_image_row">
+							<?php } ?>
+								<div class="gllr_image_block">
+									<p style="width:<?php echo $gllr_options['gllr_custom_size_px'][1][0]+$gllr_border_images; ?>px;height:<?php echo $gllr_options['gllr_custom_size_px'][1][1]+$gllr_border_images; ?>px;">
+										<?php if( ( $url_for_link = get_post_meta( $attachment->ID, $link_key, true ) ) != "" ) { ?>
+												<a href="<?php echo $url_for_link; ?>" title="<?php echo get_post_meta( $attachment->ID, $key, true ); ?>" target="_blank">
+													<img style="width:<?php echo $gllr_options['gllr_custom_size_px'][1][0]; ?>px;height:<?php echo $gllr_options['gllr_custom_size_px'][1][1]; ?>px; <?php echo $gllr_border; ?>" alt="" title="<?php echo get_post_meta( $attachment->ID, $key, true ); ?>" src="<?php echo $image_attributes[0]; ?>" />
+												</a>
+											<?php } else { ?>
+										<a rel="gallery_fancybox" href="<?php echo $image_attributes_large[0]; ?>" title="<?php echo get_post_meta( $attachment->ID, $key, true ); ?>">
+											<img style="width:<?php echo $gllr_options['gllr_custom_size_px'][1][0]; ?>px;height:<?php echo $gllr_options['gllr_custom_size_px'][1][1]; ?>px; <?php echo $gllr_border; ?>" alt="" title="<?php echo get_post_meta( $attachment->ID, $key, true ); ?>" src="<?php echo $image_attributes[0]; ?>" rel="<?php echo $image_attributes_full[0]; ?>" />
+										</a>
+											<?php } ?>
+									</p>
+									<div style="width:<?php echo $gllr_options['gllr_custom_size_px'][1][0]+$gllr_border_images; ?>px; <?php if( 0 == $gllr_options["image_text"] ) echo "visibility:hidden;"; ?>" class="gllr_single_image_text"><?php echo get_post_meta( $attachment->ID, $key, true ); ?>&nbsp;</div>
+								</div>
+							<?php if( $count_image_block%$gllr_options['custom_image_row_count'] == $gllr_options['custom_image_row_count']-1 ) { ?>
+							</div>
+							<?php } 
+							$count_image_block++; 
+						} 
+						if( $count_image_block > 0 && $count_image_block%$gllr_options['custom_image_row_count'] != 0 ) { ?>
+							</div>
+						<?php } ?>
+						</div>
+					<?php } ?>
+				</div>
+				<div class="clear"></div>
+		<?php endwhile; 
+	else: ?>
+		<div class="gallery_box_single">
+			<p class="not_found"><?php _e( 'Sorry, nothing found.', 'gallery' ); ?></p>
+		</div>
+	<?php endif; ?>
+<?php
+	$gllr_output = ob_get_clean();
+	wp_reset_query();
+	return $gllr_output;
+}
+	
 /*********Amin area*******/
 
 ?>
