@@ -10,11 +10,16 @@
 			        }
 			    ?>
 			</div>
-			<div class="partners">
-				<?php 
-					do_shortcode('home-partners');
-			 	?>
-			</div>    	
+			<br />
+			<div class="partners-container">
+				<h3 class="post-title"><?php echo __('Partners') ?></h3>
+				<div class="partners reports-container">
+					<?php
+						echo do_shortcode('[home-partners id="443"]');
+				 	?>
+				</div>			
+			</div>
+    	
 	        <?php
 	        /**
 	        * Footer  Widget Areas. Manage the widgets from: wp-admin -> Appearance -> Widgets 

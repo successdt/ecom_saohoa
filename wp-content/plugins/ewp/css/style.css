@@ -146,3 +146,7 @@ ul.list-reports li {
 .youtube-readmore {
 	width: 165px;
 }
+.partners-container {
+	margin: 10px 65px;
+	overflow: hidden;
+}

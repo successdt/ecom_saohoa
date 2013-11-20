@@ -234,6 +234,7 @@ function register_shortcode(){
 	add_shortcode('large-news-box', 'large_news_box');
 	add_shortcode('home-news', 'home_news');
 	add_shortcode('home-youtube', 'home_youtube');
+	add_shortcode('home-partners', 'home_partners');
 }
 
 add_action('init', 'register_shortcode');
@@ -639,10 +640,12 @@ function home_partners( $attr ) {
 	$second_query = new WP_Query( $args ); 
 	$gllr_options = get_option( 'gllr_options' ); 
 	if ( $second_query->have_posts() ) : 
+		?>
+		<ul class="list-reports">
+		<?php
 		while ( $second_query->have_posts() ) : 
 			global $post;
 			$second_query->the_post(); ?>
-			<div class="gallery_box_single">
 				<?php the_content(); 
 				$posts = get_posts( array(
 					"showposts"			=> -1,
@@ -656,7 +659,6 @@ function home_partners( $attr ) {
 				));
 				if( count( $posts ) > 0 ) {
 					$count_image_block = 0; ?>
-					<div class="gallery clearfix">
 						<?php foreach( $posts as $attachment ) { 
 							$key = "gllr_image_text";
 							$link_key = "gllr_link_url";
@@ -672,36 +674,28 @@ function home_partners( $attr ) {
 								$gllr_border_images = 0;
 							}
 							if( $count_image_block % $gllr_options['custom_image_row_count'] == 0 ) { ?>
-							<div class="gllr_image_row">
 							<?php } ?>
-								<div class="gllr_image_block">
-									<p style="width:<?php echo $gllr_options['gllr_custom_size_px'][1][0]+$gllr_border_images; ?>px;height:<?php echo $gllr_options['gllr_custom_size_px'][1][1]+$gllr_border_images; ?>px;">
-										<?php if( ( $url_for_link = get_post_meta( $attachment->ID, $link_key, true ) ) != "" ) { ?>
-												<a href="<?php echo $url_for_link; ?>" title="<?php echo get_post_meta( $attachment->ID, $key, true ); ?>" target="_blank">
-													<img style="width:<?php echo $gllr_options['gllr_custom_size_px'][1][0]; ?>px;height:<?php echo $gllr_options['gllr_custom_size_px'][1][1]; ?>px; <?php echo $gllr_border; ?>" alt="" title="<?php echo get_post_meta( $attachment->ID, $key, true ); ?>" src="<?php echo $image_attributes[0]; ?>" />
-												</a>
-											<?php } else { ?>
-										<a rel="gallery_fancybox" href="<?php echo $image_attributes_large[0]; ?>" title="<?php echo get_post_meta( $attachment->ID, $key, true ); ?>">
-											<img style="width:<?php echo $gllr_options['gllr_custom_size_px'][1][0]; ?>px;height:<?php echo $gllr_options['gllr_custom_size_px'][1][1]; ?>px; <?php echo $gllr_border; ?>" alt="" title="<?php echo get_post_meta( $attachment->ID, $key, true ); ?>" src="<?php echo $image_attributes[0]; ?>" rel="<?php echo $image_attributes_full[0]; ?>" />
+								<li class="gllr_image_block">
+									<?php if( ( $url_for_link = get_post_meta( $attachment->ID, $link_key, true ) ) != "" ) { ?>
+										<a href="<?php echo $url_for_link; ?>" title="<?php echo get_post_meta( $attachment->ID, $key, true ); ?>" target="_blank">
+											<img style="width:<?php echo $gllr_options['gllr_custom_size_px'][1][0]; ?>px;height:<?php echo $gllr_options['gllr_custom_size_px'][1][1]; ?>px; <?php echo $gllr_border; ?>" alt="" title="<?php echo get_post_meta( $attachment->ID, $key, true ); ?>" src="<?php echo $image_attributes[0]; ?>" />
 										</a>
-											<?php } ?>
-									</p>
-									<div style="width:<?php echo $gllr_options['gllr_custom_size_px'][1][0]+$gllr_border_images; ?>px; <?php if( 0 == $gllr_options["image_text"] ) echo "visibility:hidden;"; ?>" class="gllr_single_image_text"><?php echo get_post_meta( $attachment->ID, $key, true ); ?>&nbsp;</div>
-								</div>
+									<?php } else { ?>
+								
+										<img style="width:<?php echo $gllr_options['gllr_custom_size_px'][1][0]; ?>px;height:<?php echo $gllr_options['gllr_custom_size_px'][1][1]; ?>px; <?php echo $gllr_border; ?>" alt="" title="<?php echo get_post_meta( $attachment->ID, $key, true ); ?>" src="<?php echo $image_attributes[0]; ?>" rel="<?php echo $image_attributes_full[0]; ?>" />
+								
+									<?php } ?>
+								</li>
 							<?php if( $count_image_block%$gllr_options['custom_image_row_count'] == $gllr_options['custom_image_row_count']-1 ) { ?>
-							</div>
 							<?php } 
 							$count_image_block++; 
 						} 
 						if( $count_image_block > 0 && $count_image_block%$gllr_options['custom_image_row_count'] != 0 ) { ?>
-							</div>
 						<?php } ?>
-						</div>
 					<?php } ?>
-				</div>
-				<div class="clear"></div>
-		<?php endwhile; 
-	else: ?>
+		<?php endwhile; ?>
+		</ul>		
+	<?php else: ?>
 		<div class="gallery_box_single">
 			<p class="not_found"><?php _e( 'Sorry, nothing found.', 'gallery' ); ?></p>
 		</div>
