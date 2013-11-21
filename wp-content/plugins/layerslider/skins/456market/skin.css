@@ -1,0 +1,213 @@
+/* LayerSlider 456Market */
+
+
+
+.ls-456market.ls-container-fullscreen {
+	background-color: black !important;
+	width: 100% !important;
+}
+
+.ls-456market .ls-playvideo {
+	width: 50px;
+	height: 50px;
+	margin-left: -25px;
+	margin-top: -25px;
+}
+
+.ls-456market .ls-playvideo,
+.ls-456market .ls-nav-sides,
+.ls-456market .ls-bottom-slidebuttons a,
+.ls-456market .ls-nav-prev,
+.ls-456market .ls-nav-next,
+.ls-456market .ls-nav-start,
+.ls-456market .ls-nav-stop,
+.ls-456market .ls-fullscreen,
+.ls-456market .ls-loading-container {
+	background-image: url(skin.png);	
+}
+
+.ls-456market .ls-playvideo {
+	background-position: -300px -150px;
+}
+
+.ls-456market .ls-playvideo:hover,
+.ls-456market .ls-vpcontainer:hover .ls-playvideo {
+	background-position: -375px -150px;
+}
+
+.ls-456market .ls-nav-prev {
+	background-position: 0px 0px;
+}
+
+.ls-456market .ls-nav-prev:hover {
+	background-position: 0px -75px;
+}
+
+.ls-456market .ls-nav-next {
+	background-position: -150px 0px;
+}
+
+.ls-456market .ls-nav-next:hover {
+	background-position: -150px -75px;
+}
+
+.ls-456market .ls-nav-start {
+	background-position: -300px 0px;
+}
+
+.ls-456market .ls-nav-start:hover,
+.ls-456market .ls-nav-start-active {
+	background-position: -300px -75px;
+}
+
+.ls-456market .ls-nav-stop {
+	background-position: -450px 0px;
+}
+
+.ls-456market .ls-nav-stop:hover,
+.ls-456market .ls-nav-stop-active {
+	background-position: -450px -75px;
+}
+
+.ls-456market .ls-bottom-slidebuttons a {
+	background-position: 0px -150px;
+}
+
+.ls-456market .ls-bottom-slidebuttons a.ls-nav-active,
+.ls-456market .ls-bottom-slidebuttons a:hover {
+	background-position: -75px -150px;
+}
+
+.ls-456market .ls-nav-sideleft {
+	background-position: -150px -150px;	
+}
+
+.ls-456market .ls-nav-sideright {
+	background-position: -225px -150px;	
+}
+
+
+
+.ls-456market .ls-nav-prev,
+.ls-456market .ls-nav-next {
+	width: 40px;
+	height: 40px;
+	z-index: 10000;
+	top: 50%;
+	margin-top: -20px;	
+	position: absolute;
+}
+
+.ls-456market .ls-nav-prev {
+	left: 10px;	
+}
+
+.ls-456market .ls-nav-next {
+	right: 10px;	
+}
+
+
+
+.ls-456market .ls-bottom-slidebuttons,
+.ls-456market .ls-bottom-slidebuttons a,
+.ls-456market .ls-nav-start,
+.ls-456market .ls-nav-stop,
+.ls-456market .ls-nav-sides {
+	height: 20px;
+}
+
+.ls-456market .ls-bottom-slidebuttons,
+.ls-456market .ls-bottom-slidebuttons a,
+.ls-456market .ls-nav-start,
+.ls-456market .ls-nav-stop,
+.ls-456market .ls-nav-sides {
+	display: inline-block;
+}
+
+.ls-456market .ls-bottom-slidebuttons,
+.ls-456market .ls-nav-start,
+.ls-456market .ls-nav-stop,
+.ls-456market .ls-nav-sides {
+	top: -30px;
+}
+
+.ls-456market .ls-nav-start,
+.ls-456market .ls-nav-stop {
+	width: 25px;
+}
+
+.ls-456market .ls-bottom-slidebuttons a {
+	width: 20px;
+}
+
+.ls-456market .ls-nav-sides {
+	width: 0px;	
+}
+
+
+
+.ls-456market .ls-thumbnail-hover {
+	bottom: 30px;
+	padding: 2px;
+	margin-left: 1px;
+}
+
+.ls-456market .ls-thumbnail-hover-bg {
+	background: #fff;
+}
+
+.ls-456market .ls-thumbnail-hover span {
+	border: 5px solid #fff;
+	margin-left: -5px;
+}
+
+
+
+.ls-456market .ls-thumbnail {
+	top: 10px;
+}
+
+.ls-456market .ls-thumbnail-inner {
+	padding: 2px;
+	margin-left: -2px;
+	background: #fff;
+}
+
+.ls-456market .ls-thumbnail-slide a {
+	margin-right: 2px;
+}
+
+.ls-456market .ls-nothumb {
+	background: #fff;
+}
+
+
+
+.ls-456market .ls-loading-container {
+	width: 40px;
+	height: 40px;
+	margin-left: -20px;
+	margin-top: -20px;
+	background-position: -450px -150px;	
+}
+
+.ls-456market .ls-loading-indicator {
+	width: 22px;
+	height: 22px;
+	margin-top: 9px;
+	background-image: url(loading.gif);	
+}
+
+
+
+.ls-456market .ls-fullscreen {
+	width: 30px;
+	height: 30px;
+	right: 10px;
+	top: 10px;
+	background-position: -525px -150px;
+}
+
+.ls-456market .ls-fullscreen:hover {
+	background-position: -525px -190px;
+}

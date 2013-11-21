@@ -85,7 +85,10 @@
     <?php if(is_front_page()): ?>
     <div class="slider-container">
 		<div class="slider-inner">
-			<?php echo do_shortcode("[metaslider id=80]"); ?>
+			<?php 
+				//echo do_shortcode("[layerslider id=5]"); 
+				echo do_shortcode("[metaslider id=80]");
+			?>
 		</div>
 	</div>
 	<?php endif; ?>

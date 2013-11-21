@@ -95,10 +95,12 @@ ul.gallery {
 }
 .gallery .gllr_image_block {
 	float: left;
+	margin-right: 15px !important;
 }
 #content .gallery .gllr_image_block a img {
     border: 10px solid #F1F1F1;
 	margin-top: 0;
+	margin-right: 15px;
     box-sizing: content-box;
     -moz-box-sizing: content-box; /*Firefox 1-3*/
     -webkit-box-sizing: content-box; /* Safari */
@@ -295,4 +297,5 @@ table.gllr_pro_version {
 }
 .gllr_image_block img {
     border-style: solid;
+    margin: 0px 15px;
 }
