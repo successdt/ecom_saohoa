@@ -318,8 +318,8 @@ a:focus {
 ----------------------------*/
 
 .post {
-    margin-bottom: 15px;
-    border-bottom: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #c7c6c2;
 }
 
 .page, .post-single {
@@ -366,6 +366,7 @@ a:focus {
 
 .featured-image-container img {
     width: 615px;
+	display: block;
 }
 
 .page-title {
@@ -858,8 +859,8 @@ a:focus {
 }
 
 .widget ul li {
-    padding: 0 0 9px 0;
-    margin: 0 0 8px 0;
+    line-height: 30px;
+	padding-top: 2px !important;
 }
 
 /* Search
@@ -1646,4 +1647,25 @@ img {
 }
 
 /* NEW CSS */
+p { margin:10px 0px !important;}
 
+.home-column + .home-column {
+	margin-left: 3% !important;
+	border-right: 1px solid #c7c6c2;
+	padding: 0 20px !important;
+
+.home-support > ul {
+	list-style-type: none;
+	margin: 165px 0px !important;
+	float: left;
+}
+
+.content-bottom-widget-box ul.sub-menu li {
+	padding-left: 25px !important;
+	background: url('../images/blue_bullet.png') center left no-repeat !important;
+	padding-top: 0px !important;	
+}
+
+#main > div, #main-fullwidth > div {
+	margin: 20px 50px !important;
+}
