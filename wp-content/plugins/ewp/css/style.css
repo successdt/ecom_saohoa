@@ -135,6 +135,7 @@ ul.list-reports li {
 .home-column {
 	width: 45%;
 	float: left;
+	border-bottom: none;
 }
 .home-column + .home-column {
 	margin-left: 3%;
@@ -162,3 +163,75 @@ ul.list-reports li {
 	 width: 100%;
 	 height: 118px;
 }
+.responsiveMenuSelect {
+	padding: 6px;
+	width : auto;
+	max-width: 100%;
+}
+
+@media only screen and (max-width: 1179px) {
+    .home-column + .home-column {
+    	border-right: none;
+    }
+    .home-support + .wpcf7 {
+    	width: 100%;
+    	background: none;
+    }
+    .home-support + .wpcf7 form {
+    	background: none;
+    }
+    .featured-image-container + .entry {
+    	width: 50% !important;
+    }    
+}
+@media only screen and (max-width: 1000px) {
+	body {
+		overflow-x: hidden;
+	}
+    .home-support {
+    	width: 725px;
+    }
+    .partners-container {
+    	margin: 10px 55px;
+    }
+    .partners-container {
+    	margin: 10px 100px;
+    	max-width: 768px;
+    }
+	.featured-image-container ,.featured-image-container + .entry {
+    	width: 100% !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .home-column {
+    	width: 100%;
+    	float: left;
+    }
+    .home-column + .home-column {
+    	border: none;
+    	margin-left: 0 !important;
+    	padding-left: 0 !important;
+    }
+    .partners-container {
+    	margin: 10px 100px;
+    	max-width: 500px;
+    }
+    .widget-container.content-bottom .responsiveMenuSelect  {
+    	width: 300px;
+    }
+    .widget-container.content-bottom .responsiveSelectContainer {
+    	text-align: center;
+    	width: 420px;
+    }
+    .primary-menu-container {
+    	margin-top: 20px;
+    }
+}
+
+
+@media only screen and (max-width: 480px) {
+ 
+
+}
+
