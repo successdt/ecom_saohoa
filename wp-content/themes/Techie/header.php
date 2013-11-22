@@ -87,8 +87,9 @@
 		<div class="slider-inner">
 			<?php 
 				//echo do_shortcode("[layerslider id=5]"); 
-				echo do_shortcode("[metaslider id=80]");
+				//echo do_shortcode("[metaslider id=80]");
 			?>
+			<?php putRevSlider("home-slider","homepage") ?> 
 		</div>
 	</div>
 	<?php endif; ?>
