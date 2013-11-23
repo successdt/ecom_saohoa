@@ -161,7 +161,7 @@ ul.list-reports li {
 }
 .home-column .featured-image-container, .home-column .entry {
 	 width: 100%;
-	 height: 118px;
+	 height: auto;
 }
 .responsiveMenuSelect {
 	padding: 6px;
@@ -227,11 +227,24 @@ ul.list-reports li {
     .primary-menu-container {
     	margin-top: 20px;
     }
+    
 }
 
 
 @media only screen and (max-width: 480px) {
- 
-
+ 	.widget-container.content-bottom .responsiveMenuSelect  {
+    	width: 100px;
+    }
+    .widget-container.content-bottom .responsiveSelectContainer {
+    	text-align: center;
+    	width: 200px;
+    }
+	.partners-container {
+    	margin: 10px 100px;
+    	max-width: 200px;
+    }
+    .nav-search {
+    	float: left;
+    }
 }
 

@@ -641,6 +641,10 @@ h2.post-title {
 
 
 @media only screen and (max-width: 480px) {
-
-
+	.slider-container {
+		display:none;
+	}
+	.footer-widgets-inner .footer-widget-box {
+		margin: 20px;
+	}
 }
