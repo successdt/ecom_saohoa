@@ -198,7 +198,7 @@ body {
 	background: none;
 }
 .post .entry {
-	padding: 5px;
+/* 	padding: 5px; */
 }
 h2.title {
 
@@ -562,6 +562,10 @@ table.survey tr {
 	padding-top: 0;
 	width: 100%;
 }
+
+.entry.clearfix > h2 {
+    font-size: 18px;
+}
 .featured-image-container + .entry {
 	width: 52%;
 	margin-left: 2%;
@@ -596,6 +600,10 @@ h2.post-title {
 	font-size: 14px;
 	color: #e8871c;
 	line-height: 35px;
+}
+
+.news-columns {
+    margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 1179px) {
