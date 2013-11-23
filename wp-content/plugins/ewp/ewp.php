@@ -341,6 +341,7 @@ function home_support($atts){
 	), $atts));	
 	$str = '
 		<div class="home-support">
+            <h3 id="hot-line">Hotline:  04 3565 9596</h3>
 			<ul>
 				<li><b>Support</b> Online</li>
 				<li>
