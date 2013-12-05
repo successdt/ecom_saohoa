@@ -48,10 +48,15 @@
 					</div>
 					
 					<div id="top-social-profiles">
+						<?php /*
 						<div class="top-link">
 							<a href="#">Login</a>
 						</div>
 			            <?php $theme->hook('social_profiles'); ?>
+			            */ ?>
+			            <a href="#">
+							<img src="<?php echo get_template_directory_uri() ?>/lib/images/en_flag/png" />
+						</a>
 			        </div>
 		            
 		        </div><!-- .header-left -->		
