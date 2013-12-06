@@ -55,8 +55,15 @@
 			            <?php $theme->hook('social_profiles'); ?>
 			            */ ?>
 			            <a href="#">
-							<img src="<?php echo get_template_directory_uri() ?>/lib/images/en_flag/png" />
+							<img src="<?php echo get_template_directory_uri() ?>/lib/images/en_flag.png" />
 						</a>
+						<a href="#">
+							<img src="<?php echo get_template_directory_uri() ?>/lib/images/vn_flag.png" />
+						</a>
+						<br />
+						<p class="top-hotline">
+							<b>Hotline:</b> 19001379
+						</p>
 			        </div>
 		            
 		        </div><!-- .header-left -->		

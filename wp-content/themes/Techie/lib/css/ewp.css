@@ -15,6 +15,19 @@ body {
 	position: relative;
 	z-index: 20;
 }
+#top-social-profiles a {
+	text-decoration: none;
+}
+#top-social-profiles .top-hotline {
+	float: right;
+	padding: 10px 5px 10px 45px;
+	background: url('../images/top_hotline.png') no-repeat;
+	display: block;
+	font-size: 18px;
+	color: #153669;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
 .primary-menu-container{
 	width: 100%;
 	background: url('../images/nav_bg.png') repeat-x;
@@ -520,6 +533,18 @@ h2.title a:hover {
 	padding: 10px 0;
 	
 }
+.survey-form {
+	border: 1px solid #c6c5c1;
+	padding-bottom: 20px;
+}
+.survey-form h3, table.survey th {
+	margin-top: 0;
+	color: #153669;
+	font-size: 20px;
+}
+.survey-form table {
+	margin: 0 20px;
+}
 .contact-form form {
 	max-width: 550px;
 }
@@ -535,22 +560,31 @@ h2.title a:hover {
 .wpcf7  input[type=submit] {
 	padding: 7px 80px;
 }
-.wpcf7 th {
+
+.survey-header {
 	background: url('../images/nav_bg.png') repeat-x;
 	padding: 10px 0;
-	color: #FFF;
+	color: #FFF !important;
 	font-size: 16px;
-} 
+}
 table.survey {
+	margin-top: 20px;
 	border: 1px solid #b4b3b0;
 	background: #E1E0DB;
 	padding: 0 15px;
 }
 
-table.survey tr {
+table.survey tr + tr {
 	border-bottom: 1px solid #BEBDB9;
+	
 }
-
+.y-kien-rieng textarea{
+	width: 280px;
+	height: 100px;
+	border-radius: 5px;
+	border-color: #CCC;
+	box-shadow: 1px 1px 2px #AAA inset;
+}
 .featured-image-container {
 	width: 45%;
 	height: 310px;

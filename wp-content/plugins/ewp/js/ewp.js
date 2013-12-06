@@ -1,6 +1,6 @@
 jQuery.noConflict();
 jQuery(document).ready(function(){
-    var max = 3;
+    var max = 5;
     var checkboxes = jQuery('input[type="checkbox"]');
 
     checkboxes.click(function(){
