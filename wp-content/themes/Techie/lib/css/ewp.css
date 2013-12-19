@@ -530,7 +530,7 @@ h2.title a:hover {
 .contact-form {
 	border-top: 1px solid #c6c5c1;
 	border-bottom: 1px solid #c6c5c1;
-	padding: 10px 0;
+	padding: 30px 0;
 	
 }
 .survey-form {
@@ -586,8 +586,9 @@ table.survey tr + tr {
 	box-shadow: 1px 1px 2px #AAA inset;
 }
 .featured-image-container {
-	width: 45%;
-	height: 310px;
+	width: 40%;
+	height: auto;
+	margin-bottom: 20px;
 	float: left;
 	
 }
@@ -689,4 +690,8 @@ h2.post-title {
 	.footer-widgets-inner .footer-widget-box {
 		margin: 20px;
 	}
+	
+	form .extra ul {
+		float: left;
+		}
 }

@@ -20,16 +20,8 @@
 			*/ ?> 
         </div>
         
-        <div class="entry clearfix">
+        <div class="entry clearfix">     
             
-            <?php
-                if(has_post_thumbnail())  {
-                    the_post_thumbnail(
-                        array($theme->get_option('featured_image_width_single'), $theme->get_option('featured_image_height_single')),
-                        array("class" => $theme->get_option('featured_image_position_single') . " featured_image")
-                    );
-                }
-            ?>
             
             <?php
                 the_content('');

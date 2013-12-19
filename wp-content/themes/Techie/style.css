@@ -318,7 +318,7 @@ a:focus {
 ----------------------------*/
 
 .post {
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;;
     border-bottom: 1px solid #c7c6c2;
 }
 
@@ -365,9 +365,26 @@ a:focus {
 
 
 .featured-image-container img {
-    width: 615px;
+	width: 366px;
+	overflow: hidden;
 	display: block;
 }
+
+.report-block {
+	display: block;
+	overflow: hidden;
+	margin-bottom: 20px;
+	}
+
+.title1 {
+	max-height: 110px;
+	overflow: hidden;
+	display: block;
+	}
+	
+.title2 {
+	font-size: 0px;
+	}	
 
 .page-title {
     color: #333;
@@ -1647,7 +1664,7 @@ img {
 }
 
 /* NEW CSS */
-p { margin:10px 0px !important;}
+p { margin:10px 0px !important; text-align: justify;}
 
 .home-column + .home-column {
 	margin-left: 3% !important;

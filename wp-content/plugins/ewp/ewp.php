@@ -1,11 +1,11 @@
-<?php 
+﻿<?php 
 /*
-Plugin Name: EWP
-Plugin URI: http://ecomwebpro.com
-Description: Quản lý đặt thuê sản phẩm
+Plugin Name: Index Page
+Plugin URI: http://hoasao.vn
+Description: Index Content
 Version: 1.0.0
-Author: EWP company
-Author URI: http://ecomwebpro.com
+Author: EWP
+Author URI: http://hoasao.vn
 License: GPL2
 */
 
@@ -68,167 +68,7 @@ function prefix_add_my_stylesheet() {
     wp_enqueue_style( 'prefix-style' );
 }
 
-function buy_product(){
-	$string = '
-		<input type="hidden" id="ajax-url" value="' . admin_url('admin-ajax.php') .'">
-		<div class="product-form">
-			<a href="#info-form" id="buy-product-btn">Liên hệ</a>
-			<div style="display:none" id="info-form-wrapper">
-				<div id="info-form">
-					<table>
-						<tr>
-							<td>Tên của bạn <span class="required">*</span></td>
-							<td><input name="name" /></td>
-						</tr>
-						<tr>
-							<td>Địa chỉ email </td>
-							<td><input name="custom-email" /></td>
-						</tr>
-						<tr>
-							<td>Số điện thoại <span class="required">*</span></td>
-							<td><input name="phone" /></td>
-						</tr>
-						<tr>
-							<td>Thông điệp </td>
-							<td><textarea name="message"></textarea></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td class="ticket-submit">
-								<button>
-                                    <span>Gửi</span>
-                                    <img src="' . plugins_url('ewp/images/loading.gif') .'" style="display:none;"/>
-                                </button>
-							</td>
-						</tr>
-					</table>
-				</div>				
-			</div>
-		</div>
-	
-	';
-	return $string;
-}
-
-function show_home_banner($atts){
-	extract(shortcode_atts(array(
-		'src' => '',
-		'alt' => '',
-		'url' => '' 
-	), $atts));
-	if($src){
-		$str = '<div class="home-banner">';
-		if($url){
-			$str .= 
-				'<a href="' . $url . '">
-					<img src="' . $src . '" alt="' . $alt . '" />
-			</a>';
-			} else {
-				$str .= '<img src="' . $src . '" alt="' . $alt .'" />';
-			}
-		$str .= '</div>';		
-	}
-	return $str;
-}
-function show_home_ads($atts, $content = null){
-	$str = '
-		<div class="home-row">
-			' . $content . '
-		</div>
-	';
-	return $str;
-}
-function show_hotline($atts){
-	extract(shortcode_atts(array(
-		'hotline1' => '',
-		'hotline2' => ''
-	), $atts));
-	$str = 
-		'<div class="info-hotline home-block">
-			<div id="info-reg">
-				<div class="title">
-					Đăng ký nhận bản tin khuyến mãi
-				</div>
-				<div class="form">
-					<input name="receive-email" class="receive-email" />
-					<button class="btn-blue">Đăng ký</button>
-				</div>
-			</div>
-			<div class="hotline">
-				<div class="col">
-					<img src="' . get_bloginfo('url') . '/wp-content/uploads/2013/08/hotline1.png" />
-				</div>
-				<div class="col">
-					<img alt="01288888618" src="' . get_bloginfo('url') . '/wp-content/uploads/2013/08/hotline_no.png" />
-			';
-	$str .= '
-	
-				</div>
-			</div>
-		</div>';
-	return $str;
-}
-function booking_hint($atts, $content = null){
-	$str = 
-		'<div class="booking-hint home-cell">
-			<h5>Hướng dẫn đặt vé</h5>
-			<div class="text">' . $content . '</div>
-		</div>';
-	return $str;
-}
-function promo_news(){
-	$str = 
-		'<div class="promo-news home-cell">
-			<h5>Tin khuyến mại</h5>';
-	if(function_exists('get_vsrp')){
-		$str .= get_vsrp();
-	}
-	$str .= 
-		'</div>';
-	return $str;	
-}
-function home_address($atts, $content = null){
-	extract(shortcode_atts(array(
-		'latitude' => '',
-		'longitude' => ''
-	), $atts));
-	$str = 
-		'<div class="home-cell home-address">
-		';	
-	if($content){
-		$str .= '<div class="text">' . $content . '</div>';
-	}
-	if($latitude && $longitude){
-		$str .= '<input type="hidden" id="lat" value="' . $latitude . '">';
-		$str .= '<input type="hidden" id="lat" value="' . $longitude . '">';
-		$str .= 
-			'<div class="map">
-				<iframe width="272" height="272" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=vi&amp;geocode=&amp;q=21.0301444,105.7845998&amp;aq=&amp;sll=15.984434,108.273697&amp;sspn=0.215192,0.407181&amp;ie=UTF8&amp;t=m&amp;ll=21.030113,105.784607&amp;spn=0.021791,0.02326&amp;z=14&amp;output=embed"></iframe>
-			</div>';
-	}
-	$str .= '</div>';
-	return $str;
-}
-function facebook_page($atts){
-	extract(shortcode_atts(array(
-		'url' => ''
-	), $atts));
-	$str .= '<div class="facebook-page home-cell">';
-	if($url){
-		$str .= '<iframe src="' . $url . '" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 468px; height: 275px;" allowtransparency="true"></iframe>';	
-	}
-	$str .= '</div>';
-	return $str;
-}
 function register_shortcode(){
-//	add_shortcode('chon-ve', 'show_ticket_selector');
-//	add_shortcode('home-banner', 'show_home_banner');
-//	add_shortcode('hotline', 'show_hotline');
-//	add_shortcode('booking-hint', 'booking_hint');
-//	add_shortcode('promo-news', 'promo_news');
-//	add_shortcode('home-address', 'home_address');
-//	add_shortcode('facebook-page', 'facebook_page');
-//	add_shortcode('home-ads', 'show_home_ads');
 	add_shortcode('home-support', 'home_support');
 	add_shortcode('ewp-report', 'ewp_report');
 	add_shortcode('large-news-box', 'large_news_box');
@@ -245,6 +85,7 @@ add_action('init', 'register_shortcode');
  * save info to db and send mail
  * @author duythanhdao@live.com
  */
+
 function save_custom_info (){
     $to = get_settings('admin_email');
     $subject = 'Đặt thuê máy của ' . $_POST['name'] . ($_POST['email'] ? '<' . $_POST['email'] . '>' : '') ;
@@ -335,23 +176,23 @@ function saveContact($email = null){
 
 function home_support($atts){
 	extract(shortcode_atts(array(
-		'facebook' => '',
 		'skype' => '',
-		'yahoo' => ''
+		'linkedin' => '',
+		'facebook' => ''
 	), $atts));	
 	$str = '
 		<div class="home-support">
-            <h3 id="hot-line">Hotline:  04 3565 9596</h3>
+            <h3 id="hot-line"><span>Hotline:</span>  04 3565 9596</h3>
 			<ul>
-				<li><b>Support</b> Online</li>
+				<li class="st"><b>Support</b> Online</li>
 				<li>
-					<a class="sns facebook" href="' . $facebook . '"></a>
+					<a class="sns skype" href="skype:' . $skype . '"></a>
 				</li>
 				<li>
-					<a class="sns yahoo" href="ymsgr:sendim?' . $yahoo . '"></a>
+					<a class="sns linkedin" href="' . $linkedin . '"></a>
 				</li>
 				<li>
-					<a class="sns skype" href="skype:' . $skype . '?chat"></a>
+					<a class="sns facebook" href="' . $facebook . '?chat"></a>
 				</li>
 			</ul>
 		</div>	
@@ -384,12 +225,12 @@ function ewp_report($atts){
 				$postCount++;
 				if($postCount % 2)
 					$str .= '<li class="report-post">';
-				add_image_size( 'news-post', 210, 160, true );
+				add_image_size( 'news-post', 212, 159, true );
 				$thumb = get_the_post_thumbnail(get_the_ID(), 'news-post', 'class=post-thumb');
 				$permalink = get_permalink();
 				$str .= 
-					'<div>
-						<a href="' . get_permalink() . '" title="' . wp_specialchars(get_the_title(), 1) . '"> ' .
+					'<div class="report-block">
+						<a class="title2" href="' . get_permalink() . '" title="' . wp_specialchars(get_the_title(), 1) . '"> ' .
 							$thumb . 	
 					'	</a>';
 						
@@ -411,7 +252,6 @@ function ewp_report($atts){
 		return $str;
 	}
 }
-
 
 function large_news_box($atts){
 	extract(shortcode_atts(array(
@@ -573,12 +413,12 @@ function home_news($atts){
 								' . wp_specialchars(get_the_title(), 1) . '
 								</a>
 							</h2>';	
-							add_image_size('news-post', 475, 310, true );
+							add_image_size( 'news-post', 315, 110, true );
 							$thumb = get_the_post_thumbnail(get_the_ID(), 'news-post', 'class=post-thumb');
 							$permalink = get_permalink();
 							$str .=
 							'<div class="featured-image-container">
-								<a class="title" href="' . $permalink . '" title="' . wp_specialchars(get_the_title(), 1) . '">' .
+								<a class="title1" href="' . $permalink . '" title="' . wp_specialchars(get_the_title(), 1) . '">' .
 									$thumb .
 							'	</a>
 							</div>
@@ -599,6 +439,27 @@ function home_news($atts){
 	
 	return $str;
 }
+
+
+// custom excerpt length
+function custom_excerpt_length( $length ) {
+return 40;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+
+//Timthumb
+function thumb_img($post_id,$h,$w,$q,$zc,$alt){
+
+	echo '<img align="middle" src="';
+
+	echo bloginfo('template_url');
+
+	echo '/timthumb.php?src='.get_featured_img($post_id).'&amp;h='.$h.'&amp;w='.$w.'&amp;q='.$q.'&amp;zc='.$zc.'" alt="'.$alt.'" 														
+
+	/>';   
+
+	}
 
 function home_youtube($atts){
 	extract(shortcode_atts(array(

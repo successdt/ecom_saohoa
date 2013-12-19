@@ -1,30 +1,74 @@
+.wpcf7 form .newsletter {
+	margin: 30px auto;
+	display: block;
+	max-width:238px;
+	}
+	
+.wpcf7 form .newsletter input {
+	max-width: 220px;
+	}	
+	
+.wpcf7 form .newsletter .wpcf7-submit {
+	max-width: 270px !important;
+	display: block;
+	padding: 10px 92px!important;
+	margin: auto;
+	border: none;
+	background: url(../../../themes/Techie/images/submit.png) no-repeat;
+	}		
+
+.wpcf7 form .border-outer {
+	margin: 40px auto;
+	width: 100%;
+	border-top: 1px solid #c7c6c2;
+	border-bottom: 1px solid #fff;
+	}	
+	
+.wpcf7 form .border-inner {
+	width: 100%;
+	border-bottom: 1px solid #c7c6c2;
+	border-top: 1px solid #fff;
+	}	
+
 .home-support {
 	width: 780px;
 	height: 278px;
-	background: url('../images/support.png') right;
+	background: url('../images/support.png') left;
 	float: left;
 }
 
 .home-support #hot-line {
-    margin: 95px 0 75px 30px;
-    color: #fff;
+    margin: 100px 0 20px 400px;
+	font-size: 22px;
+    color: #153669;
 }
+
+.home-support #hot-line span {
+	font-weight: bold;
+	margin-right: 85px;
+	}
+	
 .home-support > ul {
 	list-style-type: none;
 	margin-bottom: 175px;
-	margin-left: 20px;
+	margin-left: 394px;
 	float: left;
 	padding-left: 0;
 }
 .home-support > ul > li {
 	float: left;
-	margin-left: 10px;
+	margin-left: 5px;
 	font-size: 22px;
 	color: #153669;
 	line-height: 40px;
 }
+
+.home-support .st {
+	margin-right: 18px;
+	}
+	
 .home-support .sns {
-	padding: 12px 20px;
+	padding: 4px 20px;
 }
 .home-support .facebook {
 	background: url('../images/s_fb.png') no-repeat;
@@ -32,16 +76,16 @@
 .home-support .skype {
 	background: url('../images/s_skype.png') no-repeat;
 }
-.home-support .yahoo {
-	background: url('../images/s_yahoo.png') no-repeat;
+.home-support .linkedin {
+	background: url('../images/s_linkedin.png') no-repeat;
 }
 .home-support + .wpcf7 {
 	width: auto;
-	
 	text-align: center;
 	height: 279px;
 	background: url('../images/border.png') bottom left repeat-x;
 }
+
 .home-support + .wpcf7 form {
 	background: url('../images/border.png') top left repeat-x;
 	padding: 10px;
@@ -73,10 +117,12 @@ ul.list-reports {
 	display:-webkit-box;
 	display:box;
 }
-ul.list-reports li {
+ul.list-reports li{
 }
 .reports-container {
-	overflow-x: auto;
+	display: block;
+	overflow: hidden;
+	width: 100%;
 }
 .reports-container .report-post + .report-post {
 	
@@ -84,7 +130,7 @@ ul.list-reports li {
 .report-post > div {
 	width: 210px;
 	height: 275px;
-	padding-right: 75px;
+	padding: 0px 20px;
 	background: url('../images/border.png') bottom left repeat-x;
 	text-align: center;
 }
@@ -158,6 +204,8 @@ ul.list-reports li {
 }
 .home-column p {
 	width: 100%;
+	line-height: 23px;
+	text-align: justify;
 } 
 .youtube-readmore {
 	width: 165px;
