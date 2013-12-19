@@ -71,6 +71,7 @@ function prefix_add_my_stylesheet() {
 function register_shortcode(){
 	add_shortcode('home-support', 'home_support');
 	add_shortcode('ewp-report', 'ewp_report');
+	add_shortcode('ewp-new-report', 'ewp_new_report');
 	add_shortcode('large-news-box', 'large_news_box');
 	add_shortcode('home-news', 'home_news');
 	add_shortcode('home-youtube', 'home_youtube');
@@ -251,6 +252,71 @@ function ewp_report($atts){
 			</div>';
 		return $str;
 	}
+}
+
+function ewp_new_report($atts) {
+    extract(shortcode_atts(array(
+        'category' => '',
+        'title' => '',
+        'url' => ''
+    ), $atts));
+    $str = '';
+    $child = '';
+    if($category){
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        $queryObject = new  Wp_Query( array(
+            'showposts' => 12,
+            'post_type' => array('post'),
+            'category_name' => $category,
+            'orderby' => 1,
+            'paged' => $paged
+        ));
+
+        if($queryObject->have_posts()) {
+            $cat = get_category_by_slug($category);
+            $str = '<div class="report-container">';
+            $postInRow = 0;
+            while($queryObject->have_posts()) {
+                if ($postInRow == 0) $str .= '<div class="report-group row-fluid">';
+                ++$postInRow;
+                
+                //Get post
+                $queryObject->the_post();
+                
+                //Display post
+                add_image_size( 'news-post', 475, 310, true );
+                $thumb = get_the_post_thumbnail(get_the_ID(), 'news-post', 'class=post-thumb');
+                $permalink = get_permalink();
+                // 
+                $str .=
+                    '<div class="new-report-block span3">
+                        <div class="featured-image-container">
+        					<a class="title" href="' . $permalink . '" title="' . wp_specialchars(get_the_title(), 1) . '">' .
+        						$thumb .
+        					'</a>
+    				    </div>
+        				<div class="entry clearfix">
+        					<h2 class="title">
+        						<a class="title" href="' . get_permalink() . '" title="' . wp_specialchars(get_the_title(), 1) . '">
+        						' . wp_specialchars(get_the_title(), 1) . '
+        						</a>
+        					</h2>
+        					<p>' . get_the_excerpt() . '</p>
+        				</div>
+        		    </div>';
+                
+                if ($postInRow == 4) {
+                    $postInRow = 0;
+                    $str .= '</div>';
+                }
+            }
+            //Paginate number
+            $str .= wpbeginner_numeric_posts_nav($queryObject);
+            $str .= '</div>';
+        }
+    }
+
+    return $str;
 }
 
 function large_news_box($atts){
