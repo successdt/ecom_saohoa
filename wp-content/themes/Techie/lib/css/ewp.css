@@ -165,7 +165,7 @@ body {
 	width: 1160px;
 	margin: 0 auto;
 	background: url('../images/content_bg.png') repeat-y;
-	display: table;
+/* 	display: table; */
 	padding: 0 10px;
 	
 }
