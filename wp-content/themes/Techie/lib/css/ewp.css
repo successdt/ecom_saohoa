@@ -165,7 +165,6 @@ body {
 	width: 1160px;
 	margin: 0 auto;
 	background: url('../images/content_bg.png') repeat-y;
-/* 	display: table; */
 	padding: 0 10px;
 	
 }
@@ -665,7 +664,7 @@ h2.post-title {
     	margin: 10px;
     }
     #footer-widgets {
-    	margin-top: 230px;
+    	
     }
     .news-columns .span4 {
     	margin: 50px 0 0 !important;
@@ -674,6 +673,9 @@ h2.post-title {
 
 @media only screen and (max-width: 768px) {
  	.footer-widgets-inner .footer-widget-box{
+ 		display: block;
+ 		width: 738px;
+ 		overflow: hidden;
  		float: left !important;
  		width: 100% !important;
  	}
@@ -694,4 +696,76 @@ h2.post-title {
 	form .extra ul {
 		float: left;
 		}
+
+	.news-columns {
+		display: block;
+		overflow: hidden;
+	}
+
+	.row-fluid .span4 {
+		float: left !important;
+	}	
+	.row-fluid .span8 {
+		float: right !important;
+	}
+
+	.nav-search {
+		display: block !important;
+		margin: auto !important;
+	}
+
+	.home-support {
+		background: none !important;
+		float: none !important;
+	}
+
+	.survey-form .row-fluid .span6 {
+		float: none !important;
+		margin-left: 0px !important;
+	}
+
+	@media only screen and (min-width: 455px) {
+		body {
+			display: block;
+			width: 455px;
+			height: auto;
+		}
+	.slider-container {
+		display:none;
+	}
+	.footer-widgets-inner .footer-widget-box {
+		margin: 20px;
+	}
+	
+	form .extra ul {
+		float: left;
+		}
+
+	.news-columns {
+		display: block;
+		overflow: hidden;
+	}
+
+	.row-fluid .span4 {
+		float: left !important;
+	}	
+	.row-fluid .span8 {
+		float: right !important;
+	}
+
+	.nav-search {
+		display: block !important;
+		margin: auto !important;
+	}
+
+	.home-support {
+		background: none !important;
+		float: none !important;
+	}
+
+	.survey-form .row-fluid .span6 {
+		float: none !important;
+		margin-left: 0px !important;
+	}
+
 }
