@@ -541,8 +541,8 @@ function home_youtube($atts){
 					' . $title . '
 				</a>
 			</h2>
-			<iframe width="350" height="200" src="//www.youtube.com/embed/' . $v . '" frameborder="0" allowfullscreen></iframe>
-			<p>' . $text . '</p>
+			<iframe width="100%" height="200" src="//www.youtube.com/embed/' . $v . '" frameborder="0" allowfullscreen class="home-youtube"></iframe>
+			<p class="home-youtube-note">' . $text . '</p>
 			<div class="readmore youtube-readmore">
 				<a href="http://www.youtube.com/watch?v=' . $v . '">
 					' . __('View on Youtube') . '
